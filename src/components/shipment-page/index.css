@@ -86,9 +86,16 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.from-to-wrap {
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .datePicker-wrap {
     margin-left: 1rem;
-    width: 16.67%;
+    width: 45%;
     position: relative;
 }
 
@@ -314,6 +321,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding: 0.5rem;
 }
 
 .pageArrow {
@@ -381,4 +389,49 @@ header {
     font-size: 2rem;
     color: #4b4d61;
     font-weight: 700;
+}
+
+.next-prev-wrap {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+    .filter-search {
+        flex-direction: column;
+    }
+    .search-wrap, .from-to-wrap, .filter-dropdown {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .datePicker-wrap {
+        margin-left: 0;
+    }
+    .filter-dropdown {
+        margin-left: 0;
+    }
+    .table {
+        overflow: auto;
+    }
+    .table-header, .table-row{
+        min-width: 50rem;
+    }
+    .modalContent{
+        width: 100%;
+    }
+    .pagination {
+        flex-direction: column;
+    }
+    .rowCount{
+        width: 100%;
+    }
+    .next-prev-wrap {
+        width: 100%;
+    }
+    .previousPage {
+        margin-right: 0;
+    }
+    .nextPage {
+        margin-left: 0;
+    }
 }

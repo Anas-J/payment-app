@@ -447,32 +447,34 @@ const ShipmentPage = () => {
                         />
                         </div>
                 </div>
-                <button className={`previousPage  ${currentPage === 1 ? 'disabledArrow' : ''}`} onClick={() => goToPreviousPage()}>
-                    <img className="prev pageArrow" src={left} alt="" />
-                </button>
-                <div className="pageNum">
-                    <div className="pageText">Showing Page </div>
-                    <TextField
-                        fullWidth
-                        type="number"
-                        inputProps={{ min, max }}
-                        value={pageNo}
-                        onChange={(e) => {
-                            var value = parseInt(e.target.value, 10);
-                            if (value > totalPages) value = totalPages;
-                            if (value < 1) value = 1;
-                            if (value > 0) setPageNo(value)}}
-                        onKeyPress={(e) => {
-                            if (e.key === 'Enter') {
-                                handlePageChange(pageNo);
-                            }
-                            }}
-                    />
-                    <div className="pageText">of {totalPages}</div>
+                <div className="next-prev-wrap">
+                    <button className={`previousPage  ${currentPage === 1 ? 'disabledArrow' : ''}`} onClick={() => goToPreviousPage()}>
+                        <img className="prev pageArrow" src={left} alt="" />
+                    </button>
+                    <div className="pageNum">
+                        <div className="pageText">Showing Page </div>
+                        <TextField
+                            fullWidth
+                            type="number"
+                            inputProps={{ min, max }}
+                            value={pageNo}
+                            onChange={(e) => {
+                                var value = parseInt(e.target.value, 10);
+                                if (value > totalPages) value = totalPages;
+                                if (value < 1) value = 1;
+                                if (value > 0) setPageNo(value)}}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') {
+                                    handlePageChange(pageNo);
+                                }
+                                }}
+                        />
+                        <div className="pageText">of {totalPages}</div>
+                    </div>
+                    <button className={`nextPage ${currentPage === totalPages ? 'disabledArrow' : ''}`} onClick={() => goToNextPage()}>
+                        <img className="next pageArrow" src={right} alt=""/>
+                    </button>
                 </div>
-                <button className={`nextPage ${currentPage === totalPages ? 'disabledArrow' : ''}`} onClick={() => goToNextPage()}>
-                    <img className="next pageArrow" src={right} alt=""/>
-                </button>
             </section>}
             {displayData.length === 0 &&<section className="noData">
                 <img src={noData} alt=""/>

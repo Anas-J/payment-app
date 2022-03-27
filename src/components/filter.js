@@ -37,42 +37,35 @@ const Filter = (props) => {
                     placeholder="Search by Payment ID, Merchant ID, Email, Status" />
                     <img className="searchIcon" src={searchIcon} alt="" />
             </div>
-
-            <div className="datePicker-wrap">
-                {/* <DatePicker  
-                    className="fromDate"
-                    selected={ value }  
-                    onChange={ (e) => handleChange(e.target.value) }  
-                    name="startDate"  
-                    dateFormat="MM/dd/yyyy"  
-                /> 
-                <img className="calender" src={calender} alt="" /> */}
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DesktopDatePicker
-                            label="From Date"
-                            inputFormat="dd/MM/yyyy"
-                            value={fromDate}
-                            onChange={(e) => handleFromDate(e) }
-                            renderInput={(params) => <TextField {...params} />}
-                        />
-                    </LocalizationProvider>
-                </MuiPickersUtilsProvider>
-                {fromDateError&&<div className="error">*From Date must be less than or equal to To Date</div>}
-            </div>
-            <div className="datePicker-wrap">
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DesktopDatePicker
-                            label="To Date"
-                            inputFormat="dd/MM/yyyy"
-                            value={toDate}
-                            onChange={(e) => handleToDate(e) }
-                            renderInput={(params) => <TextField {...params} />}
-                        />
-                    </LocalizationProvider>
-                </MuiPickersUtilsProvider>
-                {toDateError&&<div className="error">*To Date must be greater than or equal to From Date</div>}
+            <div className="from-to-wrap">
+                <div className="datePicker-wrap">
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DesktopDatePicker
+                                label="From Date"
+                                inputFormat="dd/MM/yyyy"
+                                value={fromDate}
+                                onChange={(e) => handleFromDate(e) }
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                        </LocalizationProvider>
+                    </MuiPickersUtilsProvider>
+                    {fromDateError&&<div className="error">*From Date must be less than or equal to To Date</div>}
+                </div>
+                <div className="datePicker-wrap">
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DesktopDatePicker
+                                label="To Date"
+                                inputFormat="dd/MM/yyyy"
+                                value={toDate}
+                                onChange={(e) => handleToDate(e) }
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                        </LocalizationProvider>
+                    </MuiPickersUtilsProvider>
+                    {toDateError&&<div className="error">*To Date must be greater than or equal to From Date</div>}
+                </div>
             </div>
             <div className="filter-dropdown">
             <FormControl fullWidth>
